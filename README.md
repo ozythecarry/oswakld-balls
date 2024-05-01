@@ -1,4 +1,4 @@
-# oswakld-balls
+
 import turtle
 
 
@@ -24,6 +24,9 @@ ball.shape("circle")
 ball.color("white")
 ball.penup()
 ball.goto(0, 0)
+ball.dx = 0.13
+ball.dy = -0.13
+
 
 # Functions
 def paddle_left():
@@ -51,6 +54,34 @@ wn.onkeypress(paddle_right,"d")
 # main game loop
 while True:
     wn.update()
+
+    # Moving the ball
+    ball.setx(ball.xcor() + ball.dx)
+    ball.sety(ball.ycor() + ball.dy)
+
+    # Border
+    if ball.ycor() > 290:
+        ball.sety(290)
+        ball.dy *= -1
+
+    if ball.ycor() < -270:
+        ball.goto(0,0)
+        ball.dy *= -1
+
+
+    if ball.xcor() > 380:
+        ball.setx(380)
+        ball.dx *= -1
+
+
+    if ball.xcor() < -380:
+        ball.setx(-380)
+        ball.dx *= -1
+
+    # Paddle collisions
+        if ball.ycor() < -240 and (ball.xcor() < paddle.xcor() + 40 and ball.xcor() > paddle.ycor() - 40):
+
+
 
 
 

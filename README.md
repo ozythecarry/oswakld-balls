@@ -49,6 +49,16 @@ pen.goto(0,260)
 pen.write("Your score: 0", align="center",font=("Courier", 24, "normal"))
 
 
+pen2 = turtle.Turtle()
+pen2.speed(0)
+pen2.color("White")
+pen2.penup()
+pen2.hideturtle()
+pen2.goto(0,240)
+pen2.write("Use your arrow keys to move", align="center",font=("Courier", 20, "normal"))
+
+
+
 # Functions
 def paddle_left():
     x = paddle.xcor()
@@ -112,4 +122,3 @@ while True:
     if ball.ycor() < -260:
         pen.clear()
         pen.write("Your score: 0", align="center",font=("Courier", 24, "normal"))
-
